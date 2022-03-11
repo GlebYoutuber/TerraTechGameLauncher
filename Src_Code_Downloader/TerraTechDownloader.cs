@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,14 @@ namespace TerraTechDownloader
     {
         public TerraTechDownloader()
         {
-            Directory.CreateDirectory(@"C:\Temp");
+            if (Directory.Exists(@"C:\Temp"))
+            {
+                Trace.WriteLine("Directory is Found...");
+            }
+            else
+            {
+                Directory.CreateDirectory(@"C:\Temp");
+            }
             Directory.CreateDirectory(@"C:\TerraTech");
             InitializeComponent();
             this.Show();
